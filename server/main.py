@@ -344,6 +344,8 @@ def list_tasks() -> list:
          "name": "Multi-Step ERP Lookup with OCR and Collision Avoidance"},
         {"task_id": "task3_hard",   "difficulty": "hard",
          "name": "Adversarial BEC and Prompt Injection Detection"},
+        {"task_id": "task4_expert", "difficulty": "expert",
+         "name": "Multi-Threat Expert Scenario with 5-Email Sequence"},
     ]
 
 
