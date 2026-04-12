@@ -380,11 +380,12 @@ class TestAPIEndpoints:
         resp = client_app.get("/tasks")
         assert resp.status_code == 200
         tasks = resp.json()
-        assert len(tasks) == 3
+        assert len(tasks) == 4
         ids = [t["task_id"] for t in tasks]
         assert "task1_easy"   in ids
         assert "task2_medium" in ids
         assert "task3_hard"   in ids
+        assert "task4_expert" in ids
 
     def test_reset_task1(self, client_app):
         resp = client_app.post("/reset", params={"task_id": "task1_easy"})
