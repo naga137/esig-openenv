@@ -170,10 +170,14 @@ def run_task(task_id: str) -> float:
     print(f"\n{'='*60}")
     print(f"  Running task: {task_id}")
     print(f"{'='*60}")
+    
+    # Print required structured output: START block
+    print(f"[START] task={task_id}", flush=True)
 
     observation = _env_reset(task_id)
     history: list[str] = []
     total_reward = 0.0
+    steps_taken = 0
 
     for step in range(MAX_STEPS):
         user_content = _observation_to_user_content(observation)
@@ -217,6 +221,11 @@ def run_task(task_id: str) -> float:
         last_error  = observation.get("last_action_error", "")
 
         total_reward += reward_val
+        steps_taken += 1
+        
+        # Print required structured output: STEP block
+        print(f"[STEP] step={steps_taken} reward={reward_val:.4f}", flush=True)
+        
         error_flag = f" [ERROR: {last_error}]" if last_error else ""
         history_line = (
             f"Step {step+1}: {action_dict.get('action_type')} "
@@ -240,6 +249,10 @@ def run_task(task_id: str) -> float:
     print(f"  Passed      : {grade_result.get('passed')}")
     print(f"  Breakdown   : {grade_result.get('breakdown')}")
     print(f"  Steps taken : {grade_result.get('steps_taken')}")
+    
+    # Print required structured output: END block
+    print(f"[END] task={task_id} score={final_score:.4f} steps={steps_taken}", flush=True)
+    
     return final_score
 
 
