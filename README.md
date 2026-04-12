@@ -1,3 +1,14 @@
+---
+title: ESIG - Enterprise Shared-Inbox Guardian
+emoji: 📧
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_file: app.py
+python_version: "3.11"
+pinned: false
+---
+
 # Enterprise Shared-Inbox Guardian (ESIG)
 
 > **OpenEnv training environment** for AI agents tackling real-world enterprise email workflows.  
