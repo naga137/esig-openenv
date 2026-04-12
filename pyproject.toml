@@ -45,6 +45,7 @@ Documentation = "https://github.com/naga137/esig-openenv#readme"
 Issues = "https://github.com/naga137/esig-openenv/issues"
 
 [project.scripts]
+server = "server.app:main"
 esig-server = "server.app:main"
 
 [tool.setuptools]
